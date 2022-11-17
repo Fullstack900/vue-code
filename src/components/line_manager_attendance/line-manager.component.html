@@ -1,0 +1,57 @@
+<div class="body-container">
+<div class="ac-form-container">
+  <div class="ac-left-container">
+<app-attendance-form [componentType]="empForm"></app-attendance-form>
+  </div>
+
+  <!-- Correction Status -->
+  <div class="ac-right-container">
+    <div class="w-100">
+      <div class="ac-right-box mt-2">
+        <div class="ac-title"
+     >
+        <span class="title-font pr-3">Correction Status</span>
+          <span class="inactive-font">{{monthArray[monthObj.previousMonth]+" "+monthObj.lastYear}}</span>
+          <span class=" pr-2 pl-2 angle-icon" (click)="previousMonth()">
+            <i class="fa fa-angle-left" aria-hidden="true"></i> </span
+          ><span class="title-font "> {{monthArray[monthObj.currentMonth] +" "+monthObj.year}}</span>
+          <span  class=" pr-2 pl-2 angle-icon" (click)="nextMonth()">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </span>
+          <span class="inactive-font ">{{monthArray[monthObj.nextMonth]+" "+monthObj.nextYear }}</span>
+          <span class="fr"   data-toggle="collapse"
+          data-target="#lmCorrectionStatus"
+          aria-expanded="true"><img src="../../../../../assets/icons/Up Arrow.svg"></span>
+        </div>
+        <div class="collapse show" id="lmCorrectionStatus">
+          <app-attendance-correction-status   [componentType]="correctionStatus"></app-attendance-correction-status>
+        <!-- <app-attendance-table [componentType]="correctionStatus"></app-attendance-table> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<!-- Correction Applicaitons -->
+<div class="ac-container">
+  <div class="w-100">
+    <div class="ac-box ml-2 ">
+      <div class="ac-title"
+      data-toggle="collapse"
+        data-target="#lmcorrectionApplication"
+        aria-expanded="true">
+        Correction Applications
+        <span class="fr"><img src="../../../../../assets/icons/Up Arrow.svg"></span>
+      </div>
+      <div class="ac-content">
+     <!-- table  start-->
+     <div class="collapse show" id="lmcorrectionApplication">
+ <app-attendance-table [componentType]="correctionApplication"></app-attendance-table>
+     </div>
+ <!-- table end-->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
